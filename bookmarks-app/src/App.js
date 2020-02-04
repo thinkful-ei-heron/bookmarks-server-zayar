@@ -54,16 +54,6 @@ class App extends Component {
     })
   }
 
-  onClickDelete = (id) => {
-    fetch(`${config.API_ENDPOINT}/${id}`,
-      {
-        method: 'DELETE',
-        headers: { 'Authorization': `Bearer ${config.API_KEY}`}
-      }).then(this.setState({
-        bookmarks: this.state.bookmarks.filter(bookmark => bookmark.id !== id)
-      }))
-  }
-
   componentDidMount() {
     fetch(config.API_ENDPOINT, {
       method: 'GET',
@@ -98,7 +88,6 @@ class App extends Component {
           {page === 'list' && (
             <BookmarkList
               bookmarks={bookmarks}
-              onClickDelete={this.onClickDelete}
             />
           )}
         </div>

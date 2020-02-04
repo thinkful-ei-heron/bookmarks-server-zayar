@@ -17,7 +17,6 @@ class BookmarkList extends Component {
             <BookmarkItem
               key={bookmark.id}
               {...bookmark}
-              onClickDelete={this.props.onClickDelete}
             />
           )}
         </ul>
